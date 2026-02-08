@@ -1,5 +1,7 @@
 # astro-koharu
 
+[English](README.en.md) | [中文](README.md)
+
 ![](https://r2.cosine.ren/i/2026/01/94383107ba4586f773938ed4dae34ff1.webp)
 
 一个萌系 / 二次元 / 粉蓝配色的博客主题，适合 ACG、前端、手账向个人站，性能优异。
