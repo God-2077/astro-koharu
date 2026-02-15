@@ -33,10 +33,15 @@ export const uiStrings: UIStrings = {
   'common.toc': 'Table of Contents',
   'common.expand': 'Expand',
   'common.collapse': 'Collapse',
+  'common.menuLabel': '{name} menu',
 
   // ── Post ────────────────────────────────────────────────────
   'post.readMore': 'Read more',
   'post.totalPosts': '{count} posts',
+  'post.stickyPosts': 'Pinned Posts',
+  'post.postList': 'Posts',
+  'post.featuredCategories': 'Featured Categories',
+  'post.yearPosts': '{count} posts',
   'post.readingTime': '{time} min read',
   'post.wordCount': '{count} words',
   'post.publishedAt': 'Published {date}',
@@ -47,6 +52,7 @@ export const uiStrings: UIStrings = {
   'post.seriesNavigation': 'Series Navigation',
   'post.seriesPrev': 'Previous',
   'post.seriesNext': 'Next',
+  'post.fallbackNotice': 'This post is not yet available in {lang}. Showing the original.',
   'post.draft': 'Draft',
   'post.pinned': 'Pinned',
   'post.noPostsFound': 'No posts found',
@@ -54,8 +60,13 @@ export const uiStrings: UIStrings = {
   // ── Categories & Tags ───────────────────────────────────────
   'category.allCategories': 'All Categories',
   'category.postsInCategory': 'Posts in {name}',
+  'category.totalCategories': '{count} categories',
+  'category.categoryLabel': 'Category',
   'tag.allTags': 'All Tags',
   'tag.postsWithTag': 'Posts tagged "{name}"',
+  'tag.totalTags': '{count} tags',
+  'tag.all': 'All',
+  'tag.postCount': '{count} posts',
 
   // ── Archives ────────────────────────────────────────────────
   'archives.title': 'Archives',
@@ -168,27 +179,40 @@ export const uiStrings: UIStrings = {
   'pagination.prev': 'Previous',
   'pagination.next': 'Next',
   'pagination.page': 'Page {page}',
+  'pagination.currentPage': 'Page {page}, current page',
   'pagination.of': 'of {total}',
 
   // ── Breadcrumb ──────────────────────────────────────────────
   'breadcrumb.home': 'Home',
+  'breadcrumb.goToCategory': 'Go to {name} category',
 
   // ── Floating Group ──────────────────────────────────────────
-  'floating.backToTop': 'Back to top',
-  'floating.scrollToBottom': 'Scroll to bottom',
+  'floating.backToTop': 'Back Top',
+  'floating.scrollToBottom': 'Scroll Bottom',
   'floating.toggleTheme': 'Toggle theme',
   'floating.christmas': 'Toggle Christmas effects',
   'floating.bgm': 'Background music',
   'floating.toggleToolbar': 'Toggle toolbar',
 
   // ── Announcement ────────────────────────────────────────────
+  'announcement.title': 'Announcements',
+  'announcement.new': 'New',
+  'announcement.count': '{count} announcements',
+  'announcement.unreadCount': '{count} unread',
+  'announcement.markAllRead': 'Mark all read',
   'announcement.dismiss': 'Dismiss',
   'announcement.learnMore': 'Learn more',
+  'announcement.empty': 'No announcements',
+  'announcement.emptyHint': 'New announcements will appear here',
 
   // ── Quiz ────────────────────────────────────────────────────
   'quiz.check': 'Check',
   'quiz.correct': 'Correct!',
   'quiz.incorrect': 'Incorrect, try again',
+  'quiz.incorrectAnswer': 'Incorrect. The correct answer is {answer}.',
+  'quiz.submitAnswer': 'Submit ({count} selected)',
+  'quiz.commonMistakes': 'Common mistakes:',
+  'quiz.parseFailed': 'Failed to parse quiz',
   'quiz.showAnswer': 'Show answer',
   'quiz.hideAnswer': 'Hide answer',
   'quiz.reset': 'Reset',
@@ -203,6 +227,7 @@ export const uiStrings: UIStrings = {
   'quiz.optionTrue': 'True',
   'quiz.optionFalse': 'False',
   'quiz.clickToReveal': 'Click to reveal answer',
+  'quiz.quizOptions': '{type} options',
   'quiz.trueFalseCorrect': 'Correct!',
   'quiz.trueFalseIncorrect': 'Incorrect. The statement is {answer}.',
 
@@ -215,11 +240,24 @@ export const uiStrings: UIStrings = {
   'notFound.title': 'Page Not Found',
   'notFound.description': 'The page you are looking for does not exist',
   'notFound.backHome': 'Back to Home',
+  'notFound.browseArchives': 'Browse Archives',
+  'notFound.message': 'Meow? The page was eaten~',
+
+  // ── Category Stats ────────────────────────────────────────
+  'category.subCategoryCount': '{count} subcategories',
+  'category.postCount': '{count} posts',
+
+  // ── Post Card ─────────────────────────────────────────────
+  'post.readingTimeTooltip': 'Estimated reading time: {time}',
 
   // ── Featured Series ─────────────────────────────────────────
   'series.latestPost': 'Latest',
   'series.viewAll': 'View all',
   'series.postCount': '{count} posts',
+  'series.noPosts': 'No posts in this series',
+  'series.rss': 'RSS Feed',
+  'series.chromeExtension': 'Chrome Extension',
+  'series.docs': 'Documentation',
 
   // ── Home Info ───────────────────────────────────────────────
   'homeInfo.articles': 'Articles',
@@ -241,6 +279,7 @@ export const uiStrings: UIStrings = {
 
   // ── Tag Component ───────────────────────────────────────────
   'tag.expandAll': 'Show all',
+  'tag.viewTagPosts': 'View {count} posts tagged "{tag}"',
 
   // ── Audio Player ────────────────────────────────────────────
   'audio.loading': 'Loading playlist...',
@@ -248,6 +287,18 @@ export const uiStrings: UIStrings = {
   'audio.retry': 'Retry',
   'audio.empty': 'No tracks',
   'audio.listTab': 'List {index}',
+  'audio.closePanel': 'Close panel',
+
+  // ── Table of Contents ───────────────────────────────────────
+  'toc.title': 'Table of Contents',
+  'toc.expand': 'Expand table of contents',
+  'toc.empty': 'No headings',
+
+  // ── Embed ─────────────────────────────────────────────────
+  'embed.loadingTweet': 'Loading Tweet',
+
+  // ── Search Shortcut ───────────────────────────────────────
+  'search.searchShortcut': 'Search ({shortcut})',
 
   // ── Sider Segmented ─────────────────────────────────────────
   'sider.overview': 'Overview',
