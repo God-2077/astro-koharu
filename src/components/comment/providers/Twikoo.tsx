@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { commentConfig } from '@/constants/site-config';
-
+import 'twikoo/dist/twikoo.css' // 必须单独加载 css，不然样式会丢失
+import {init} from 'twikoo/dist/twikoo.nocss.js'
 // Config is module-level static data parsed from YAML at build time - won't change at runtime
 const config = commentConfig.twikoo;
 
@@ -11,44 +12,9 @@ export default function Twikoo() {
   useEffect(() => {
     if (!config || !containerRef.current) return;
 
-    // 动态加载 Twikoo 脚本
-    const loadTwikoo = async () => {
-      if (window.twikoo) {
-        initTwikoo();
-      } else {
-        // 加载 Twikoo 脚本
-        const script = document.createElement('script');
-        script.src = 'https://unpkg.com/twikoo@1.6.44/dist/twikoo.nocss.js';
-        script.onload = initTwikoo;
-        script.onerror = () => {
-          console.error('Failed to load Twikoo script');
-        };
-        document.head.appendChild(script);
-
-        return () => {
-          document.head.removeChild(script);
-        };
-      }
-    };
-
-    // 加载 Twikoo 样式(防止样式丢失)
-    const loadTwikooStyles = () => {
-      // 检查是否已加载样式
-      if (!document.getElementById('twikoo-styles')) {
-        const styleLink = document.createElement('link');
-        styleLink.id = 'twikoo-styles';
-        styleLink.rel = 'stylesheet';
-        styleLink.href = 'https://unpkg.com/twikoo@1.6.44/dist/twikoo.css';
-        document.head.appendChild(styleLink);
-      }
-    };
-
     // 初始化 Twikoo
     const initTwikoo = () => {
-      if (!window.twikoo || !containerRef.current) return;
-
-      // 加载样式
-      loadTwikooStyles();
+      if (!containerRef.current) return;
 
       // 确保容器元素存在
       const container = containerRef.current;
@@ -57,7 +23,7 @@ export default function Twikoo() {
       container.innerHTML = '';
 
       // 初始化 Twikoo
-      window.twikoo.init({
+      init({
         envId: config.envId,
         el: container,
         region: config.region,
@@ -65,9 +31,9 @@ export default function Twikoo() {
         lang: config.lang,
       });
     };
-
+    
     // 加载并初始化 Twikoo
-    loadTwikoo();
+    initTwikoo();
 
     // Handle Astro page transitions - reload Twikoo when navigating
     const handlePageLoad = () => {
