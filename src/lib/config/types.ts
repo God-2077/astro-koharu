@@ -181,7 +181,7 @@ export interface RouterItem {
 // Comment Configuration
 // =============================================================================
 
-export type CommentProvider = 'remark42' | 'giscus' | 'waline' | 'none';
+export type CommentProvider = 'remark42' | 'giscus' | 'waline' | 'twikoo' | 'none';
 
 export interface Remark42Config {
   host: string;
@@ -389,11 +389,118 @@ export interface WalineConfig {
   locale?: Record<string, string>;
 }
 
+export interface TwikooConfig {
+  /**
+   * 环境 ID (腾讯云开发) 或 服务端地址 (Vercel/私有部署) (必填)
+   * Environment ID (Tencent CloudBase) or server address (Vercel/private deployment) (required)
+   */
+  envId: string;
+
+  /**
+   * 腾讯云开发地域 (可选，默认: 'ap-shanghai')
+   * Tencent CloudBase region (optional, default: 'ap-shanghai')
+   */
+  region?: string;
+
+  /**
+   * 显示语言
+   * Display language
+   * @default 'zh-CN'
+   */
+  lang?: string;
+
+  /**
+   * 暗黑模式适配
+   * Darkmode support
+   * @default 'html.dark'
+   */
+  dark?: string | boolean;
+
+  /**
+   * 评论框占位符
+   * Comment box placeholder
+   * @default '说点什么吧...'
+   */
+  placeholder?: string;
+
+  /**
+   * 博主邮箱 (可选，用于显示博主标识)
+   * Blogger email (optional, used to display blogger badge)
+   */
+  master?: string;
+
+  /**
+   * 必填字段
+   * Required fields
+   * @default ['nick']
+   */
+  requiredMeta?: ('nick' | 'mail' | 'link')[];
+
+  /**
+   * 评论列表分页，每页条数
+   * Number of pages per page
+   * @default 10
+   */
+  pageSize?: number;
+
+  /**
+   * 表情包配置
+   * Emoji configuration
+   * @default true
+   */
+  emoji?: boolean | any[];
+
+  /**
+   * 图片上传功能
+   * Image upload feature
+   * @default false
+   */
+  upload?: boolean;
+
+  /**
+   * 代码高亮
+   * Code highlighting
+   * @default true
+   */
+  codeHighlight?: boolean;
+
+  /**
+   * 数学公式渲染
+   * Math formula rendering
+   * @default false
+   */
+  math?: boolean;
+
+  /**
+   * 表单占位符
+   * Form placeholders
+   */
+  metaPlaceholder?: {
+    nick?: string;
+    mail?: string;
+    link?: string;
+  };
+
+  /**
+   * 管理员密码
+   * Admin password
+   */
+  admin?: string;
+
+  /**
+   * 评论排序方式
+   * Comment sorting method
+   * @default 'latest'
+   */
+  commentSorting?: 'latest' | 'oldest';
+}
+
 export interface CommentConfig {
   provider?: CommentProvider;
   remark42?: Remark42Config;
   giscus?: GiscusConfig;
   waline?: WalineConfig;
+  twikoo?: TwikooConfig;
 }
 
 // =============================================================================
