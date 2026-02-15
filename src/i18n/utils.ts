@@ -10,6 +10,16 @@ import { translations } from './translations';
 import { uiStrings as defaultStrings } from './translations/zh';
 import type { Locale, TranslationKey, TranslationParams } from './types';
 
+/** Replace `{param}` placeholders in a string with provided values. */
+function interpolate(value: string, params?: TranslationParams): string {
+  if (!params) return value;
+  let result = value;
+  for (const [param, val] of Object.entries(params)) {
+    result = result.replaceAll(`{${param}}`, String(val));
+  }
+  return result;
+}
+
 /**
  * Translate a key to the given locale with optional parameter interpolation.
  *
@@ -30,7 +40,7 @@ import type { Locale, TranslationKey, TranslationParams } from './types';
  */
 export function t(locale: Locale, key: TranslationKey, params?: TranslationParams): string {
   const dict = translations[locale];
-  let value = dict?.[key] ?? defaultStrings[key];
+  const value = dict?.[key] ?? defaultStrings[key];
 
   if (!value) {
     // Development warning for missing keys
@@ -40,28 +50,21 @@ export function t(locale: Locale, key: TranslationKey, params?: TranslationParam
     return key;
   }
 
-  if (params) {
-    for (const [param, val] of Object.entries(params)) {
-      value = value.replaceAll(`{${param}}`, String(val));
-    }
-  }
-
-  return value;
+  return interpolate(value, params);
 }
 
 /**
- * Create a bound translator for a specific locale.
- * Useful in components where the locale is known and fixed.
- *
- * @example
- * ```ts
- * const t = createTranslator('en');
- * t('nav.home') // => 'Home'
- * t('post.totalPosts', { count: 5 }) // => '5 posts'
- * ```
+ * Try to translate a dynamic key that may or may not exist in the dictionary.
+ * Unlike `t()`, accepts an arbitrary string key and returns `undefined` if not found.
+ * This avoids `as TranslationKey` casts for dynamically constructed keys.
  */
-export function createTranslator(locale: Locale) {
-  return (key: TranslationKey, params?: TranslationParams): string => t(locale, key, params);
+function tryTranslate(locale: Locale, key: string, params?: TranslationParams): string | undefined {
+  const dict = translations[locale];
+  const value = dict?.[key as TranslationKey] ?? defaultStrings[key as TranslationKey];
+
+  if (!value) return undefined;
+
+  return interpolate(value, params);
 }
 
 /**
@@ -70,12 +73,18 @@ export function createTranslator(locale: Locale) {
  * Strategy: check if the first path segment is a supported locale code.
  * If not (or for default locale URLs without prefix), return defaultLocale.
  *
+ * Note: URLs with the default locale prefix (e.g., '/zh/post/hello') are treated
+ * as defaultLocale — the prefix is ignored. This works with Astro's
+ * `redirectToDefaultLocale: true` which redirects `/zh/` → `/`. No static pages
+ * are generated for the default locale prefix, so such URLs would 404 anyway.
+ *
  * @example
  * ```ts
  * getLocaleFromUrl('/en/post/hello')  // => 'en'
  * getLocaleFromUrl('/post/hello')     // => 'zh' (default)
  * getLocaleFromUrl('/en/')            // => 'en'
  * getLocaleFromUrl('/')               // => 'zh' (default)
+ * getLocaleFromUrl('/zh/post/hello')  // => 'zh' (default — prefix ignored)
  * ```
  */
 export function getLocaleFromUrl(pathname: string): Locale {
@@ -102,7 +111,7 @@ export function getLocaleFromUrl(pathname: string): Locale {
  * localizedPath('/', 'en')            // => '/en'
  * ```
  */
-export function localizedPath(path: string, locale: Locale): string {
+export function localizedPath(path: string, locale: Locale = defaultLocale): string {
   // Ensure path starts with /
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
 
@@ -185,7 +194,7 @@ export function getHtmlLang(locale: Locale): string {
  */
 export function resolveNavName(nameKey: string | undefined, fallbackName: string | undefined, locale: Locale): string {
   if (nameKey) {
-    return t(locale, nameKey as TranslationKey);
+    return tryTranslate(locale, nameKey) ?? fallbackName ?? '';
   }
   return fallbackName ?? '';
 }

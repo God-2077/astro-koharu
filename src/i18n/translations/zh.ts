@@ -32,10 +32,15 @@ export const uiStrings = {
   'common.toc': '目录',
   'common.expand': '展开',
   'common.collapse': '收起',
+  'common.menuLabel': '{name}菜单',
 
   // ── Post ────────────────────────────────────────────────────
   'post.readMore': '阅读全文',
   'post.totalPosts': '共 {count} 篇文章',
+  'post.stickyPosts': '置顶文章',
+  'post.postList': '文章列表',
+  'post.featuredCategories': '精选分类',
+  'post.yearPosts': '{count} 篇文章',
   'post.readingTime': '{time} 分钟阅读',
   'post.wordCount': '{count} 字',
   'post.publishedAt': '发布于 {date}',
@@ -46,6 +51,7 @@ export const uiStrings = {
   'post.seriesNavigation': '系列导航',
   'post.seriesPrev': '上一篇',
   'post.seriesNext': '下一篇',
+  'post.fallbackNotice': '本文暂无{lang}翻译，显示原文内容',
   'post.draft': '草稿',
   'post.pinned': '置顶',
   'post.noPostsFound': '暂无文章',
@@ -53,8 +59,13 @@ export const uiStrings = {
   // ── Categories & Tags ───────────────────────────────────────
   'category.allCategories': '所有分类',
   'category.postsInCategory': '{name} 分类下的文章',
+  'category.totalCategories': '共 {count} 个分类',
+  'category.categoryLabel': '分类',
   'tag.allTags': '所有标签',
   'tag.postsWithTag': '标签「{name}」下的文章',
+  'tag.totalTags': '共 {count} 个标签',
+  'tag.all': '全部',
+  'tag.postCount': '{count} 篇文章',
 
   // ── Archives ────────────────────────────────────────────────
   'archives.title': '归档',
@@ -109,6 +120,7 @@ export const uiStrings = {
   'code.exitFullscreen': '退出全屏',
   'code.wrapLines': '自动换行',
   'code.viewSource': '查看源码',
+  'code.viewRendered': '查看渲染结果',
 
   // ── Diagram / Infographic ───────────────────────────────────
   'diagram.fullscreen': '全屏查看',
@@ -166,10 +178,12 @@ export const uiStrings = {
   'pagination.prev': '上一页',
   'pagination.next': '下一页',
   'pagination.page': '第 {page} 页',
+  'pagination.currentPage': '第 {page} 页，当前页',
   'pagination.of': '共 {total} 页',
 
   // ── Breadcrumb ──────────────────────────────────────────────
   'breadcrumb.home': '首页',
+  'breadcrumb.goToCategory': '前往{name}分类',
 
   // ── Floating Group ──────────────────────────────────────────
   'floating.backToTop': '回到顶部',
@@ -180,13 +194,24 @@ export const uiStrings = {
   'floating.toggleToolbar': '展开/收起工具栏',
 
   // ── Announcement ────────────────────────────────────────────
+  'announcement.title': '公告',
+  'announcement.new': '新',
+  'announcement.count': '{count} 条公告',
+  'announcement.unreadCount': '{count} 条未读',
+  'announcement.markAllRead': '全部已读',
   'announcement.dismiss': '关闭公告',
   'announcement.learnMore': '了解更多',
+  'announcement.empty': '暂无公告',
+  'announcement.emptyHint': '有新公告时会在这里显示',
 
   // ── Quiz ────────────────────────────────────────────────────
   'quiz.check': '检查答案',
   'quiz.correct': '回答正确！',
   'quiz.incorrect': '回答错误，请重试',
+  'quiz.incorrectAnswer': '回答错误。正确答案是 {answer}。',
+  'quiz.submitAnswer': '提交答案（已选 {count} 项）',
+  'quiz.commonMistakes': '易错项：',
+  'quiz.parseFailed': '题目解析失败',
   'quiz.showAnswer': '查看答案',
   'quiz.hideAnswer': '隐藏答案',
   'quiz.reset': '重置',
@@ -201,6 +226,7 @@ export const uiStrings = {
   'quiz.optionTrue': '正确',
   'quiz.optionFalse': '错误',
   'quiz.clickToReveal': '点击查看答案',
+  'quiz.quizOptions': '{type}选项',
   'quiz.trueFalseCorrect': '回答正确！',
   'quiz.trueFalseIncorrect': '回答错误。该命题是{answer}的。',
 
@@ -213,11 +239,24 @@ export const uiStrings = {
   'notFound.title': '页面未找到',
   'notFound.description': '你访问的页面不存在',
   'notFound.backHome': '返回首页',
+  'notFound.browseArchives': '浏览归档',
+  'notFound.message': '喵？页面被吃掉了~',
+
+  // ── Category Stats ────────────────────────────────────────
+  'category.subCategoryCount': '{count} 个子分类',
+  'category.postCount': '{count} 篇文章',
+
+  // ── Post Card ─────────────────────────────────────────────
+  'post.readingTimeTooltip': '预计阅读时长: {time}',
 
   // ── Featured Series ─────────────────────────────────────────
   'series.latestPost': '最新文章',
   'series.viewAll': '查看全部',
   'series.postCount': '{count} 篇',
+  'series.noPosts': '暂无系列文章',
+  'series.rss': 'RSS 订阅',
+  'series.chromeExtension': 'Chrome 插件',
+  'series.docs': '文档',
 
   // ── Home Info ───────────────────────────────────────────────
   'homeInfo.articles': '文章',
@@ -239,6 +278,7 @@ export const uiStrings = {
 
   // ── Tag Component ───────────────────────────────────────────
   'tag.expandAll': '展开全部',
+  'tag.viewTagPosts': '查看标签「{tag}」的 {count} 篇文章',
 
   // ── Audio Player ────────────────────────────────────────────
   'audio.loading': '加载播放列表…',
@@ -246,6 +286,18 @@ export const uiStrings = {
   'audio.retry': '重试',
   'audio.empty': '暂无曲目',
   'audio.listTab': '列表 {index}',
+  'audio.closePanel': '关闭面板',
+
+  // ── Table of Contents ───────────────────────────────────────
+  'toc.title': '文章目录',
+  'toc.expand': '展开目录',
+  'toc.empty': '暂无目录',
+
+  // ── Embed ─────────────────────────────────────────────────
+  'embed.loadingTweet': '正在加载 Tweet',
+
+  // ── Search Shortcut ───────────────────────────────────────
+  'search.searchShortcut': '搜索 ({shortcut})',
 
   // ── Sider Segmented ─────────────────────────────────────────
   'sider.overview': '站点概览',
@@ -254,7 +306,4 @@ export const uiStrings = {
 
   // ── Copy Link ───────────────────────────────────────────────
   'cover.copyLink': '复制链接',
-
-  // ── Code View Source ────────────────────────────────────────
-  'code.viewRendered': '查看渲染结果',
 } as const;
