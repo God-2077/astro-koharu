@@ -480,9 +480,9 @@ comment:
   #   emitMetadata: '0'                # 发送元数据 ('0' | '1')
   #   inputPosition: top               # 输入框位置 ('top' | 'bottom')
   #   lang: zh-CN                      # 语言
-  # waline:
-  #   serverURL: https://your-waline.vercel.app  # Waline 服务端地址 (必填)
-  #   lang: zh-CN                      # 语言 (默认: 'zh-CN')
+  waline:
+    serverURL: https://your-waline.vercel.app  # Waline 服务端地址 (必填)
+    lang: zh-CN                      # 语言 (默认: 'zh-CN')
   twikoo:
     envId: https://twikoo-p.ksable.top/.netlify/functions/twikoo  # Twikoo 环境 ID (腾讯云) 或 Vercel 环境地址 (必填)
     el: '#tcomment'                  # 容器元素选择器 (默认: '#tcomment')

@@ -18,7 +18,7 @@ export default function Twikoo() {
       } else {
         // 加载 Twikoo 脚本
         const script = document.createElement('script');
-        script.src = 'https://cdn.staticfile.org/twikoo/1.6.30/twikoo.all.min.js';
+        script.src = 'https://unpkg.com/twikoo@1.6.44/dist/twikoo.nocss.js';
         script.onload = initTwikoo;
         script.onerror = () => {
           console.error('Failed to load Twikoo script');
@@ -31,9 +31,24 @@ export default function Twikoo() {
       }
     };
 
+    // 加载 Twikoo 样式(防止样式丢失)
+    const loadTwikooStyles = () => {
+      // 检查是否已加载样式
+      if (!document.getElementById('twikoo-styles')) {
+        const styleLink = document.createElement('link');
+        styleLink.id = 'twikoo-styles';
+        styleLink.rel = 'stylesheet';
+        styleLink.href = 'https://unpkg.com/twikoo@1.6.44/dist/twikoo.css';
+        document.head.appendChild(styleLink);
+      }
+    };
+
     // 初始化 Twikoo
     const initTwikoo = () => {
       if (!window.twikoo || !containerRef.current) return;
+
+      // 加载样式
+      loadTwikooStyles();
 
       // 确保容器元素存在
       const container = containerRef.current;
