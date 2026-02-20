@@ -1,0 +1,22 @@
+22:24:32 λ src/pages/rss.xml.ts
+22:24:32   └─ /rss.xml (+119ms)
+22:24:32 ▶ src/pages/tags/[tag].astro
+22:24:32   ├─ /tags/s:5/index.htmlENOENT: no such file or directory, mkdir 'C:\Users\y\yufile\server\Astro\astro-koharu\dist\tags\s:5'
+  Location:
+    C:\Users\y\yufile\server\Astro\astro-koharu\node_modules\.pnpm\astro@5.16.6_@netlify+blobs@10.5.0_@ty22:24:32 λ src/pages/rss.xml.ts
+22:24:32   └─ /rss.xml (+119ms)
+22:24:32 ▶ src/pages/tags/[tag].astro
+22:24:32 λ src/pages/rss.xml.ts
+22:24:32   └─ /rss.xml (+119ms)
+22:24:32 ▶ src/pages/tags/[tag].astro
+22:24:32   ├─ /tags/s:5/index.htmlENOENT: no such file or directory, mkdir 'C:\Users\y\yufile\server\Astro\astro-koharu\dist\tags\s:5'
+  Location:
+    C:\Users\y\yufile\server\Astro\astro-koharu\node_modules\.pnpm\astro@5.16.6_@netlify+blobs@10.5.0_@types+node@24.10.1_@vercel+functions@2.2.13_jiti@2.6.1_li_uwrsefa7wsukl2pv3qjsvvjteu\node_modules\astro\dist\core\build\generate.js:424:3
+  Stack trace:
+    at async Object.mkdir (node:internal/fs/promises:861:10)
+    at async generatePathWithLogs (file:///C:/Users/y/yufile/server/Astro/astro-koharu/node_modules/.pnpm/astro@5.16.6_@netlify+blobs@10.5.0_@types+node@24.10.1_@vercel+functions@2.2.13_jiti@2.6.1_li_uwrsefa7wsukl2pv3qjsvvjteu/node_modules/astro/dist/core/build/generate.js:159:21)
+    at async generatePages (file:///C:/Users/y/yufile/server/Astro/astro-koharu/node_modules/.pnpm/astro@5.16.6_@netlify+blobs@10.5.0_@types+node@24.10.1_@vercel+functions@2.2.13_jiti@2.6.1_li_uwrsefa7wsukl2pv3qjsvvjteu/node_modules/astro/dist/core/build/generate.js:99:7)
+    at async AstroBuilder.build (file:///C:/Users/y/yufile/server/Astro/astro-koharu/node_modules/.pnpm/astro@5.16.6_@netlify+blobs@10.5.0_@types+node@24.10.1_@vercel+functions@2.2.13_jiti@2.6.1_li_uwrsefa7wsukl2pv3qjsvvjteu/node_modules/astro/dist/core/build/index.js:157:5)
+    at async build (file:///C:/Users/y/yufile/server/Astro/astro-koharu/node_modules/.pnpm/astro@5.16.6_@netlify+blobs@10.5.0_@types+node@24.10.1_@vercel+functions@2.2.13_jiti@2.6.1_li_uwrsefa7wsukl2pv3qjsvvjteu/node_modules/astro/dist/core/build/index.js:45:3)
+    at async runCommand (file:///C:/Users/y/yufile/server/Astro/astro-koharu/node_modules/.pnpm/astro@5.16.6_@netlify+blobs@10.5.0_@types+node@24.10.1_@vercel+functions@2.2.13_jiti@2.6.1_li_uwrsefa7wsukl2pv3qjsvvjteu/node_modules/astro/dist/cli/index.js:210:7)
+ ELIFECYCLE  Command failed with exit code 1.
