@@ -156,18 +156,18 @@ featuredSeries:
 # 添加新平台：复制现有配置块，修改键名和各字段值即可
 # -----------------------------------------------------------------------------
 social:
-  github:
-    url: https://github.com/your-username # 替换为你的 GitHub 链接
-    icon: ri:github-fill # Remix Icon 的 GitHub 图标
-    color: '#191717' # (可选) 图标颜色
-  email:
-    url: mailto:your@email.com # 替换为你的邮箱，需加 mailto: 前缀
-    icon: ri:mail-line
-    color: '#55acd5'
-  rss:
-    url: /rss.xml # 站内 RSS 订阅地址
-    icon: ri:rss-line
-    color: '#ff6600'
+  # github:
+  #   url: https://github.com/your-username # 替换为你的 GitHub 链接
+  #   icon: ri:github-fill # Remix Icon 的 GitHub 图标
+  #   color: '#191717' # (可选) 图标颜色
+  # email:
+  #   url: mailto:your@email.com # 替换为你的邮箱，需加 mailto: 前缀
+  #   icon: ri:mail-line
+  #   color: '#55acd5'
+  # rss:
+  #   url: /rss.xml # 站内 RSS 订阅地址
+  #   icon: ri:rss-line
+  #   color: '#ff6600'
   # -------------------------------------------------------------------------
   # 以下是更多可选的社交平台配置示例，取消注释并修改即可启用：
   # -------------------------------------------------------------------------
@@ -358,10 +358,10 @@ navigation:
     icon: ri:home-heart-fill # 图标
   # - name: 书摘
   #   path: /reading
-  - name: 周刊
-    nameKey: nav.weekly
-    path: /weekly
-    icon: ri:newspaper-line
+  # - name: 周刊
+  #   nameKey: nav.weekly
+  #   path: /weekly
+  #   icon: ri:newspaper-line
   - name: 文章 # 有子菜单时，path 可省略
     nameKey: nav.posts
     icon: ri:quill-pen-ai-fill
@@ -475,7 +475,7 @@ navigation:
     # path: # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
     # lang: # 语言 (默认: 'zh-CN')
 comment:
-  provider: none  # 'remark42' | 'giscus' | 'waline' | 'twikoo' | 'none'
+  provider: twikoo  # 'remark42' | 'giscus' | 'waline' | 'twikoo' | 'none'
   # remark42:
   #   host: https://comment.example.com/
   #   siteId: your-site-id
@@ -490,43 +490,43 @@ comment:
   #   inputPosition: top               # 输入框位置 ('top' | 'bottom')
   #   lang: zh-CN                      # 语言
 
-  # waline:
-  #   serverURL: https://your-waline.vercel.app  # Waline 服务端地址 (必填)
-  #   lang: zh-CN                      # 语言 (默认: 'zh-CN')
-  #   dark: html.dark                  # 暗黑模式 (默认: 'html.dark')
-  #                                    # 可选: true (自适应) | false (禁用) | CSS选择器字符串
-  #   meta:                            # 评论者信息字段 (默认: ['nick', 'mail', 'link'])
-  #     - nick
-  #     - mail
-  #     - link
-  #   requiredMeta:                    # 必填字段 (默认: [])
-  #     - nick
-  #   login: enable                    # 登录模式 ('enable' | 'disable' | 'force', 默认: 'enable')
-  #   wordLimit: 0                     # 评论字数限制 (0 = 无限制, 默认: 0)
-  #                                    # 可选: 单个数字 | [min, max] 数组
-  #   pageSize: 10                     # 每页评论数 (默认: 10)
-  #   imageUploader: false             # 图片上传功能 (默认: false)
-  #   highlighter: true                # 代码高亮 (默认: true)
-  #   texRenderer: false               # LaTeX 渲染 (默认: false)
-  #   search: false                    # 搜索功能 (默认: false)
-  #   reaction: false                  # 文章反应功能 (默认: false)
-  #                                    # 可选: true | false | 字符串数组 (自定义反应图标)
-  #   emoji: true                      # 表情包配置 (默认: ['//unpkg.com/@waline/emojis@1.2.0/weibo'])
-  #                                    # 可选: true | false | 字符串/对象数组
-  #                                    # 预设表情包: '//unpkg.com/@waline/emojis@1.2.0/weibo'
-  #                                    #           '//unpkg.com/@waline/emojis@1.2.0/alus'
-  #                                    #           '//unpkg.com/@waline/emojis@1.2.0/bilibili'
-  #                                    #           '//unpkg.com/@waline/emojis@1.2.0/qq'
-  #                                    #           '//unpkg.com/@waline/emojis@1.2.0/tieba'
-  #                                    #           '//unpkg.com/@waline/emojis@1.2.0/tw-emoji'
-  #   commentSorting: latest           # 评论排序 ('latest' | 'oldest' | 'hottest', 默认: 'latest')
-  #   noCopyright: false               # 隐藏页脚版权信息 (默认: false)
-  #   comment: true                    # 评论数统计 (默认: true)
-  #   pageview: true                   # 页面访问量统计 (默认: true)
-  #   # recaptchaV3Key: ''             # reCAPTCHA v3 Key (可选)
-  #   # turnstileKey: ''               # Cloudflare Turnstile Key (可选)
-  #   # locale:                        # 自定义语言显示 (可选)
-  #   #   placeholder: '请留言...'      # 自定义输入框占位文本
+  waline:
+    serverURL: https://your-waline.vercel.app  # Waline 服务端地址 (必填)
+    lang: zh-CN                      # 语言 (默认: 'zh-CN')
+    dark: html.dark                  # 暗黑模式 (默认: 'html.dark')
+                                     # 可选: true (自适应) | false (禁用) | CSS选择器字符串
+    meta:                            # 评论者信息字段 (默认: ['nick', 'mail', 'link'])
+      - nick
+      - mail
+      - link
+    requiredMeta:                    # 必填字段 (默认: [])
+      - nick
+    login: enable                    # 登录模式 ('enable' | 'disable' | 'force', 默认: 'enable')
+    wordLimit: 0                     # 评论字数限制 (0 = 无限制, 默认: 0)
+                                     # 可选: 单个数字 | [min, max] 数组
+    pageSize: 10                     # 每页评论数 (默认: 10)
+    imageUploader: false             # 图片上传功能 (默认: false)
+    highlighter: true                # 代码高亮 (默认: true)
+    texRenderer: false               # LaTeX 渲染 (默认: false)
+    search: false                    # 搜索功能 (默认: false)
+    reaction: false                  # 文章反应功能 (默认: false)
+                                     # 可选: true | false | 字符串数组 (自定义反应图标)
+    emoji: true                      # 表情包配置 (默认: ['//unpkg.com/@waline/emojis@1.2.0/weibo'])
+                                     # 可选: true | false | 字符串/对象数组
+                                     # 预设表情包: '//unpkg.com/@waline/emojis@1.2.0/weibo'
+                                     #           '//unpkg.com/@waline/emojis@1.2.0/alus'
+                                     #           '//unpkg.com/@waline/emojis@1.2.0/bilibili'
+                                     #           '//unpkg.com/@waline/emojis@1.2.0/qq'
+                                     #           '//unpkg.com/@waline/emojis@1.2.0/tieba'
+                                     #           '//unpkg.com/@waline/emojis@1.2.0/tw-emoji'
+    commentSorting: latest           # 评论排序 ('latest' | 'oldest' | 'hottest', 默认: 'latest')
+    noCopyright: false               # 隐藏页脚版权信息 (默认: false)
+    comment: true                    # 评论数统计 (默认: true)
+    pageview: true                   # 页面访问量统计 (默认: true)
+    # recaptchaV3Key: ''             # reCAPTCHA v3 Key (可选)
+    # turnstileKey: ''               # Cloudflare Turnstile Key (可选)
+    # locale:                        # 自定义语言显示 (可选)
+    #   placeholder: '请留言...'      # 自定义输入框占位文本
   twikoo:
     envId: https://your-twikoo.vercel.app  # Twikoo 环境 ID (腾讯云) 或 Vercel 环境地址 (必填)
     # region: ap-shanghai              # 环境地域，默认为 ap-shanghai
@@ -581,20 +581,20 @@ bgm:
 
 christmas:
   enabled: false # 总开关
-  # features: # 各功能独立开关
-  #   snowfall: true # 飘雪效果
-  #   christmasColorScheme: true # 圣诞配色
-  #   christmasCoverDecoration: true # 封面装饰
-  #   christmasHat: true # 头像圣诞帽
-  #   readingTimeSnow: true # 阅读时间雪花图标
-  # snowfall: # 飘雪参数配置
-  #   speed: 0.5 # 下落速度 (0-1)
-  #   intensity: 0.7 # 雪花密度 (0-1)
-  #   mobileIntensity: 0.4 # 移动端密度（建议较低）
-  #   maxLayers: 6 # 最大层数
-  #   maxIterations: 8 # 最大迭代次数
-  #   mobileMaxLayers: 4 # 移动端最大层数
-  #   mobileMaxIterations: 6 # 移动端最大迭代次数
+  features: # 各功能独立开关
+    snowfall: true # 飘雪效果
+    christmasColorScheme: true # 圣诞配色
+    christmasCoverDecoration: true # 封面装饰
+    christmasHat: true # 头像圣诞帽
+    readingTimeSnow: true # 阅读时间雪花图标
+  snowfall: # 飘雪参数配置
+    speed: 0.5 # 下落速度 (0-1)
+    intensity: 0.7 # 雪花密度 (0-1)
+    mobileIntensity: 0.4 # 移动端密度（建议较低）
+    maxLayers: 6 # 最大层数
+    maxIterations: 8 # 最大迭代次数
+    mobileMaxLayers: 4 # 移动端最大层数
+    mobileMaxIterations: 6 # 移动端最大迭代次数
 
 # =============================================================================
 # Development Tools (Dev Only)
