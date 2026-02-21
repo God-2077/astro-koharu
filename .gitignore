@@ -35,3 +35,5 @@ pnpm-debug.log*
 
 # Backup files
 backups/
+
+src/content/blog/test

@@ -6,8 +6,7 @@ categorys:
   - 分类1
 tags:
   - 标签1
-#   - 1:2
-# comments: true
+password: "123456"
 ---
 
 ## 测试
