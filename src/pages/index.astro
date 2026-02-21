@@ -64,7 +64,7 @@ const page: Page<BlogPost> = {
       )}
       <Divider>{t(locale, 'post.postList')}</Divider>
       <PostList posts={posts} page={page} showPaginator={true} baseUrl={postsBaseUrl} isHomePage={true} />
-      {(siteConfig?.featuredCategories && siteConfig?.featuredCategories?.length > 0) && (
+      {!!siteConfig?.featuredCategories?.length && (
         <>
           <Divider className="mt-6">{t(locale, 'post.featuredCategories')}</Divider>
           <CategoryCards />
