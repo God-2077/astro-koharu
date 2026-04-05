@@ -66,7 +66,6 @@ export function getPostSlug(post: PostRefWithSlugLinkAndDataLink): string {
   const slug = siteConfig.enableSlugTransliteration
     ? slugify(localeInfo, { allowedChars: 'a-zA-Z0-9-_.~/', separator: '-' })
     : localeInfo;
-  // debugger
   return post?.data?.link ?? post.link ?? slug;
 }
 
