@@ -130,14 +130,18 @@ if (contentConfig.enableShokaEffects !== false) {
 if (contentConfig.enableEncryptedBlock) {
   remarkPlugins.push(remarkDirective, remarkEncryptedDirective);
 }
-// Link embed is always on (existing feature)
-remarkPlugins.push([
-  remarkLinkEmbed,
-  {
-    enableTweetEmbed: contentConfig.enableTweetEmbed ?? true,
-    enableOGPreview: contentConfig.enableOGPreview ?? true,
-  },
-]);
+// Link embed
+const enableTweetEmbed = contentConfig.enableTweetEmbed ?? true;
+const enableOGPreview = contentConfig.enableOGPreview ?? true;
+if (enableTweetEmbed || enableOGPreview) {
+  remarkPlugins.push([
+    remarkLinkEmbed,
+    {
+      enableTweetEmbed,
+      enableOGPreview,
+    },
+  ]);
+}
 
 // Rehype plugins — order matters
 const rehypePlugins = [
