@@ -1,5 +1,4 @@
 ---
-import Search from 'astro-pagefind/components/Search';
 /**
  * SearchPortal Component
  *
@@ -10,6 +9,8 @@ import Search from 'astro-pagefind/components/Search';
  * point to root-level URLs (e.g., /post/xxx) regardless of the current locale.
  * A future iteration could use custom result rendering to prepend locale prefix.
  */
+import { siteConfig } from '@constants/site-config';
+import Search from 'astro-pagefind/components/Search';
 import { getLocaleFromUrl, t } from '@/i18n';
 
 const locale = getLocaleFromUrl(Astro.url.pathname);
@@ -21,6 +22,7 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
     id="search-for-dialog"
     className="pagefind-ui"
     uiOptions={{
+      baseUrl: siteConfig.site,
       showImages: false,
       resetStyles: false,
       translations: {
