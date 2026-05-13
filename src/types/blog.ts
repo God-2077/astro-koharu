@@ -24,6 +24,8 @@ export interface BlogSchema {
   math?: boolean;
   /** Enable quiz interaction for this post */
   quiz?: boolean;
+  /** Enable comments for this post (defaults to true) */
+  comments?: boolean;
   /** Password for encrypting the entire post content */
   password?: string;
   /** Keywords for SEO */

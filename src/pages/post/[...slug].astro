@@ -50,7 +50,7 @@ const canonicalUrl = isFallback
   ? new URL(localizedPath(`/post/${encodeSlug(getPostSlug(post))}`, defaultLocale), Astro.site).href
   : undefined;
 const { Content } = await post.render();
-const { title, categories = [], tags = [], date, math: postMath, keywords: postKeywords = [] } = post?.data ?? {};
+const { title, categories = [], tags = [], date, comments: postComments = true, math: postMath, keywords: postKeywords = [] } = post?.data ?? {};
 // KaTeX CSS: only load when global enableMath is on AND post hasn't opted out.
 // When enableMath is false globally, rehype-katex is not in the pipeline, so no math is rendered.
 const hasMath = defaultContentConfig.enableMath !== false && postMath !== false;
@@ -206,7 +206,7 @@ if (post.data.description) {
       <article class="prose md:prose-sm dark:prose-invert" data-pagefind-body>
         <CustomContent Content={Content} />
       </article>
-      <Comment />
+      {postComments && <Comment />}
     </div>
   </TwoColumnLayout>
 </Layout>

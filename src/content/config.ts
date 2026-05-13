@@ -50,6 +50,7 @@ const blogCollection = defineCollection({
     math: z.boolean().optional(),
     quiz: z.boolean().optional(),
     password: z.string().optional(),
+    comments: z.boolean().optional(),
     /** Keywords for SEO */
     keywords: z.array(z.string()).optional(),
   }) satisfies z.ZodType<BlogSchema, z.ZodTypeDef, BlogSchemaInput>,
